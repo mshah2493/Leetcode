@@ -1,5 +1,7 @@
 package practice;
 
+import datastructure.Node;
+
 public class InOrderSuccessorII {
 	public Node inorderSuccessor(Node node) {
         if (node.right != null) {
