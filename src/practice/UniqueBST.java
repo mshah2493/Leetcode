@@ -3,6 +3,8 @@ package practice;
 import java.util.ArrayList;
 import java.util.List;
 
+import datastructure.TreeNode;
+
 public class UniqueBST {
 	public int numTrees(int n) {
 		int[] G = new int[n + 1];

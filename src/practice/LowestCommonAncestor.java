@@ -1,5 +1,7 @@
 package practice;
 
+import datastructure.TreeNode;
+
 public class LowestCommonAncestor {
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
