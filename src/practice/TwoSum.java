@@ -24,16 +24,39 @@ Output: [0,1]
 
 package practice;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 public class TwoSum 
 {
 	
 	public static int[] twoSum(int[] nums, int target) 
 	{
-		return null;
+		int[] result = new int[2];
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int index = 0;
+		
+		for (int num : nums) {
+			if (map.containsKey(target - num)) {
+				result[0] = map.get(target - num);
+				result[1] = index;
+				
+				break;
+			} 
+			
+			map.put(num, index);
+			
+			++index;
+		}
+		
+		return result;
 	}
 
 	public static void main(String[] args) 
 	{
-		// TODO Auto-generated method stub
+		int[] nums = {2,7,11,15};
+		int target = 20;
+		
+		System.out.print(Arrays.toString(twoSum(nums, target)));
 	}
 }
