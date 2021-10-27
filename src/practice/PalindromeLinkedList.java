@@ -28,8 +28,25 @@ Follow up: Could you do it in O(n) time and O(1) space?
 
 package practice;
 
-public class PalindromeLinkedList {
+import datastructure.ListNode;
 
+public class PalindromeLinkedList {
+	private ListNode frontPointer;
+
+    private boolean recursivelyCheck(ListNode currentNode) {
+        if (currentNode != null) {
+            if (!recursivelyCheck(currentNode.next)) return false;
+            if (currentNode.val != frontPointer.val) return false;
+            frontPointer = frontPointer.next;
+        }
+        return true;
+    }
+
+    public boolean isPalindrome(ListNode head) {
+        frontPointer = head;
+        return recursivelyCheck(head);
+    }
+    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

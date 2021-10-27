@@ -1,14 +1,30 @@
 package practice;
 
+import java.util.Stack;
+
 public class ValidParenthesis 
 {
 	public static boolean isValid(String s) 
     {
-		return false;
+		Stack<Character> stack = new Stack<>();
+		
+		for (char c : s.toCharArray()) {
+			if (c == '{' || c == '[' || c == '(') {
+				stack.push(c);
+			} else {
+				if (stack.isEmpty()) return false;
+				
+				char temp = stack.pop();
+				
+				if ((c == '}' && temp != '{') || (c == ']' && temp != '[') || (c == ')' && temp != '(')) return false; 
+			}
+		}
+		
+		return stack.isEmpty(); 
     }
 
 	public static void main(String[] args) 
 	{
-		// TODO Auto-generated method stub
+		System.out.println(isValid("{[)]}"));
 	}
 }

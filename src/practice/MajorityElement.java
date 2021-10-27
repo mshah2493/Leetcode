@@ -25,8 +25,33 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 
 package practice;
 
-public class MajorityElement {
+import java.util.HashMap;
 
+public class MajorityElement {
+	public int majorityElement(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int majorElement = nums[0];
+        
+        for (int num : nums)
+        {
+            if (map.containsKey(num))
+            {
+                map.put(num, map.get(num) + 1);
+            }
+            else
+            {
+                map.put(num, 1);
+            }
+            
+            if (map.get(majorElement) < map.get(num))
+            {
+                majorElement = num;
+            }
+        }
+        
+        return majorElement;
+    }
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	}

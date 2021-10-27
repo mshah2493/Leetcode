@@ -35,7 +35,19 @@ public class ClimbStairs
 {
 	public static int climbStairs(int n) 
     { 
-        return 0;
+		int first = 0;
+        int second = 1;
+        int steps = 0;
+        
+        while (n > 0)
+        {
+            steps = first + second;
+            first = second;
+            second = steps;
+            --n;
+        }
+        
+        return steps;
     }
 	
 	public static void main(String[] args) 

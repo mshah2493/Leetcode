@@ -61,7 +61,24 @@ Follow up: Could you write a solution that runs in O(n) time and use only O(1) m
 
 package practice;
 
+import datastructure.ListNode;
+
 public class IntersectionofTwoLinkedLists {
+	public static ListNode findIntersection(ListNode headA, ListNode headB) {
+		
+		ListNode node1 = headA;
+        ListNode node2 = headB;
+        
+        while(node1 != node2) {
+			if (node1 == null) node1 = headB;
+            else node1 = node1.next;
+            
+			if (node2 == null) node2 = headA;
+            else node2 = node2.next;
+		}
+		
+		return node1;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
